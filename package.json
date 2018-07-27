@@ -1,0 +1,15 @@
+{
+  "name": "webpack-static-nunjucks-scaffolding",
+  "version": "0.0.1",
+  "description": "simple webpack scaffolding with nunjucks",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrea Briganti <kbytesys@gmail.com>",
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "nunjucks": "^3.1.3",
+    "nunjucks-webpack-plugin": "^4.0.1",
+    "webpack": "^4.16.3"
+  }
+}

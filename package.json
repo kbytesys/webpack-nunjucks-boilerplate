@@ -31,8 +31,7 @@
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "webpack": "^4.16.3",
-    "webpack-cli": "^3.1.0",
-    "webpack-sass-loader": "^2.2.1"
+    "webpack-cli": "^3.1.0"
   },
   "dependencies": {
     "bootstrap": "^4.1.3",

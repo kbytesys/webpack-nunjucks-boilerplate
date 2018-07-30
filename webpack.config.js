@@ -1,10 +1,11 @@
-const NunjucksWebpackPlugin = require("nunjucks-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
-const ExtraWatchWebpackPlugin = require("extra-watch-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtraWatchWebpackPlugin = require("extra-watch-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const NunjucksWebpackPlugin = require("nunjucks-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = env => {
     const devMode = !env || !env.production;
@@ -60,6 +61,7 @@ module.exports = env => {
             new MiniCssExtractPlugin({
                 filename: "assets/css/[name].css",
             }),
+            new StyleLintPlugin(),
             new BrowserSyncPlugin({
                 host: 'localhost',
                 port: 3000,

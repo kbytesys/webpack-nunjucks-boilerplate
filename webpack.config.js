@@ -4,7 +4,7 @@ const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 const ExtraWatchWebpackPlugin = require("extra-watch-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = env => {
     const devMode = !env || !env.production;
@@ -68,6 +68,9 @@ module.exports = env => {
             new ExtraWatchWebpackPlugin({
                 dirs: [ 'templates' ]
             }),
+            new CopyWebpackPlugin([
+                { from: 'assets/**/*', to: '.' }
+            ]),
             new CleanWebpackPlugin(['dist'])
         ],
         optimization: {

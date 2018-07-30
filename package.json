@@ -18,6 +18,7 @@
     "browser-sync": "^2.24.6",
     "browser-sync-webpack-plugin": "^2.2.2",
     "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^1.0.0",
     "extra-watch-webpack-plugin": "^1.0.3",
     "mini-css-extract-plugin": "^0.4.1",

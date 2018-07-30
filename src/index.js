@@ -1,5 +1,2 @@
 require('../scss/main.scss');
-
-export function miao() {
-    alert("miao");
-}
+export * from '../js/main';

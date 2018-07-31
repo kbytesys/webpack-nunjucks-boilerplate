@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const NunjucksWebpackPlugin = require("nunjucks-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = env => {
     const devMode = !env || !env.production;
@@ -83,13 +84,17 @@ module.exports = env => {
         ],
         optimization: {
             minimizer: [
-                new OptimizeCSSAssetsPlugin({
-                    cssProcessorOptions: {
-                        map: {
-                            inline: false
-                        }
-                    }
-                })
+              new UglifyJsPlugin({
+                sourceMap: true,
+                parallel: true
+              }),
+              new OptimizeCSSAssetsPlugin({
+                  cssProcessorOptions: {
+                      map: {
+                          inline: false
+                      }
+                  }
+              })
             ]
         }
     };

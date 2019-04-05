@@ -11,9 +11,9 @@
   "author": "Andrea Briganti <kbytesys@gmail.com>",
   "license": "MPL-2.0",
   "devDependencies": {
-    "autoprefixer": "^9.5.0",
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
+    "autoprefixer": "^9.5.0",
     "babel-loader": "^8.0.5",
     "browser-sync": "^2.26.3",
     "browser-sync-webpack-plugin": "^2.2.2",
@@ -40,6 +40,10 @@
     "stylelint": "^9.10.1",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-webpack-plugin": "^0.10.5",
+    "ts-loader": "^5.3.3",
+    "tslint": "^5.15.0",
+    "tslint-loader": "^3.5.4",
+    "typescript": "^3.4.1",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"

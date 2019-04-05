@@ -16,6 +16,7 @@ module.exports = env => {
     mode: devMode ? 'development' : 'production',
     entry: {
       main: './src/index.js',
+      typescript_demo: './src/typescript_demo.ts',
       vendor: './src/vendor.js'
     },
     output: {
@@ -32,6 +33,34 @@ module.exports = env => {
             'css-loader',
             'postcss-loader',
             'sass-loader'
+          ]
+        },
+        {
+          test: /\.ts(x?)$/,
+          enforce: 'pre',
+          exclude: /node_modules/,
+          use: [
+            {
+              loader: 'tslint-loader',
+              options: { /* Loader options go here */ }
+            }
+          ]
+        },
+        {
+          test: /\.ts(x?)$/,
+          exclude: /node_modules/,
+          use: [
+            {
+              loader: 'babel-loader',
+              query: {
+                presets: [
+                  '@babel/preset-env'
+                ]
+              }
+            },
+            {
+              loader: 'ts-loader'
+            }
           ]
         },
         {

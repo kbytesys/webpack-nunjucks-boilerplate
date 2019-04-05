@@ -8,6 +8,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
+const nunjuckspages = require('./nunjuckspages');
 
 module.exports = env => {
   const devMode = !env || !env.production;
@@ -86,16 +87,7 @@ module.exports = env => {
     devtool: 'source-map',
     plugins: [
       new NunjucksWebpackPlugin({
-        templates: [
-          {
-            from: 'templates/index.njk',
-            to: 'index.html'
-          },
-          {
-            from: 'templates/anotherpage.njk',
-            to: 'anotherpage.html'
-          }
-        ]
+        templates: nunjuckspages
       }),
       new MiniCssExtractPlugin({
         filename: 'assets/css/[name].css'

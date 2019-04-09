@@ -102,9 +102,10 @@ module.exports = env => {
         dirs: ['templates']
       }),
       new CopyWebpackPlugin([
+        // copyUmodified is true because of https://github.com/webpack-contrib/copy-webpack-plugin/pull/360
         { from: 'assets/**/*', to: '.' }
-      ]),
-      new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: ['dist'] })
+      ], { copyUnmodified: true }),
+      new CleanWebpackPlugin()
     ],
     optimization: {
       minimizer: [

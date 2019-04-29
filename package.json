@@ -28,6 +28,7 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
     "extra-watch-webpack-plugin": "^1.0.3",
+    "file-loader": "^3.0.1",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "nunjucks": "^3.2.0",

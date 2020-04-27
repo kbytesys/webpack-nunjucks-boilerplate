@@ -24,7 +24,7 @@ module.exports = env => {
     output: {
       path: path.join(__dirname, 'dist'),
       filename: 'assets/js/[name].js',
-      library: 'MainModule'
+      library: '[name]Module'
     },
     module: {
       rules: [

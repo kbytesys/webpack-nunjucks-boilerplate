@@ -1,5 +1,5 @@
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -23,7 +23,7 @@ module.exports = env => {
     output: {
       path: path.join(__dirname, 'dist'),
       filename: 'assets/js/[name].js',
-      library: 'MainModule',
+      library: 'MainModule'
     },
     module: {
       rules: [
@@ -73,7 +73,7 @@ module.exports = env => {
         {
           test: /\.js$/,
           loader: 'babel-loader',
-          query: {
+          options: {
             presets: [
               '@babel/preset-env'
             ]

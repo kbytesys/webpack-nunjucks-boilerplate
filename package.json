@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "jquery": "^3.5.0"
+    "jquery": "^3.5.0",
+    "@popperjs/core": "^2.3.3"
   }
 }

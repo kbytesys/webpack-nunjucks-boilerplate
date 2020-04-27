@@ -1,3 +1,4 @@
+/* eslint-disable */
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -17,7 +18,7 @@ module.exports = env => {
     mode: devMode ? 'development' : 'production',
     entry: {
       main: './src/index.js',
-      typescript_demo: './src/typescript_demo.ts',
+      typescript_demo: './src/ts/typescript_demo.ts',
       vendor: './src/vendor.js'
     },
     output: {
@@ -42,8 +43,12 @@ module.exports = env => {
           exclude: /node_modules/,
           use: [
             {
-              loader: 'tslint-loader',
-              options: { /* Loader options go here */ }
+              loader: 'eslint-loader',
+              options: {
+                options: {
+                  eslintPath: path.join(__dirname, 'src/ts/'),
+                }
+              }
             }
           ]
         },

@@ -4,5 +4,5 @@ export interface DemoData {
 }
 
 export function createDemoItem(): DemoData {
-    return {id: 1, name: 'demo'};
+    return { id: 1, name: 'demo' };
 }

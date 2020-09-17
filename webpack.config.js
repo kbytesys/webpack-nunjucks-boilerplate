@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const NunjucksWebpackPlugin = require('nunjucks-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 const nunjuckspages = require('./nunjuckspages');
 
@@ -127,15 +127,16 @@ module.exports = env => {
       new ExtraWatchWebpackPlugin({
         dirs: ['templates']
       }),
-      new CopyWebpackPlugin([
-        // copyUmodified is true because of https://github.com/webpack-contrib/copy-webpack-plugin/pull/360
-        { from: 'assets/**/*', to: '.' }
-      ], { copyUnmodified: true }),
-      new CleanWebpackPlugin()
+      new CopyWebpackPlugin({
+        patterns: [
+          { from: 'assets/**/*', to: '.' }
+        ]
+      })
     ],
     optimization: {
+      minimize: true,
       minimizer: [
-        new UglifyJsPlugin({
+        new TerserPlugin({
           sourceMap: true,
           parallel: true
         }),

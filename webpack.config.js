@@ -32,9 +32,9 @@ module.exports = env => {
           test: /\.(sa|sc|c)ss$/,
           use: [
             MiniCssExtractPlugin.loader,
-            'css-loader',
-            'postcss-loader',
-            'sass-loader'
+            { loader: 'css-loader', options: { sourceMap: true } },
+            { loader: 'postcss-loader', options: { sourceMap: true } },
+            { loader: 'sass-loader', options: { sourceMap: true } },
           ]
         },
         {
@@ -129,12 +129,12 @@ module.exports = env => {
       }),
       new CopyWebpackPlugin({
         patterns: [
-          { from: 'assets/**/*', to: '.' }
+          { from: 'assets/**/*', to: '.', noErrorOnMissing: true}
         ]
       })
     ],
     optimization: {
-      minimize: true,
+      minimize: !devMode,
       minimizer: [
         new TerserPlugin({
           sourceMap: true,
